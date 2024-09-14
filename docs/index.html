@@ -3,16 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Python</span> IDE 🐍</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>My Own - Python</span> IDE 🐍</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
+    body {
+        background-color: #1e1e1e;
+    }
+
+    .boxdbshadow {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+    }
+
+    .bg-hover:hover,
+    .bg-hover:focus,
+    .bg-hover:active,
+    .bg-hover:target {
+        opacity: 0.45 !important;
+    }
+
+    #editor {
+        width: 100%;
+        height: 360px;
+        margin: 0;
+        padding: 60px 0px 0px;
+        overflow: hidden;
+    }
+
+    /*  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
 
     * {
         padding: 0;
@@ -95,9 +121,11 @@
     #run:hover {
         box-shadow: 0px 0px 10px 0px #00D65C;
         transform: scale(1.5);
-        /* Increase the scale on hover */
+        
     }
+*/
 
+    /*
     #output {
         margin-inline: 25px;
     }
@@ -178,32 +206,78 @@
             padding: 5px;
         }
 
-    }
+    }*/
 </style>
 
 <body>
-    <div class="header-section">
+    <!--<div class="header-section">
         <h1>Online <span style="color: #00D65C;">Python</span> IDE 🐍</h1>
+    </div>-->
+
+
+
+
+    <div id="home" class="d-flex position-fixed z-3 w-100 boxdbshadow" data-bs-theme="dark">
+
+        <img type="button" title="MENU" onclick="abrirModal('vis-modal')" type="button"
+            src="https://pwag.pages.dev/d-framework/icon/192/favicon.png"
+            class="img-thumbnail rounded-0 border-0 p-0 bg-hover bg-dark" width="56" height="50" />
+
+        <div class="form-floating flex-grow-1 rounded-0 border-0 text-uppercase">
+            <select type="button" title="Menu select" class="form-select rounded-0 border-0 border-end text-uppercase"
+                id="mySelects" aria-label="Floating label select example">
+                <option selected value="javascript:location.reload();">Python IDE HOME</option>
+                <option value="javascript:sharesbutton();">Compartilhar</option>
+                <option value="javascript:window.open('https://dpripol.pages.dev/?=Python IDE');">PRIVACY POLICY
+                </option>
+                <option value="javascript:window.open('https://pag.ae/7Y3uUnhg8');">DOAR COM</option>
+            </select>
+            <label class="d-inline-block text-truncate w-100" for="floatingSelect">Python IDE</label>
+        </div>
+
+
+        <button id="run" title="RUN CODE" class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end"
+            type="button">
+            <i class="bi bi-eye opacity-75"></i>
+        </button>
+
+        <button id="copyButton" title="COPIAR CODE" class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end"
+            type="button">
+            <i class="bi bi-copy opacity-75"></i>
+        </button>
+
+        <button id="saex-button" onclick="bgdabrirModal('bgdvis-modal')" title="DOWNLOAD"
+            class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end" type="button">
+            <i class="bi bi-download opacity-75"></i>
+        </button>
+
     </div>
 
+
+
     <div class="editor-section">
-        <div id="editor" style="height: 400px;" rows="10" cols="80"></div>
+        <div id="editor"></div>
     </div>
-    <div class="output-section">
-        <div class="button-area">
+
+
+    <!--<div class="output-section bg-black">
+        <!--<div class="button-area">
             <h2>Output:</h2>
             <button id="run" title="Run Code">▶</button>
         </div>
 
-        <div class="result-wrapper">
-            <div class="result-section">
-                <pre id="output"></pre>
-            </div>
-            <div class="result-btn-section">
+        <div class="result-wrapper">-->
+
+    <div class="result-section bg-black position-fixed bottom-0 z-3 w-100" style="height: 250px;">
+        <pre class="text-warning" id="output"></pre>
+    </div>
+
+    <!--<div class="result-btn-section">
                 <button id="copyButton" title="Copy Output"><i class="fa-solid fa-copy"></i> Copy Output</button>
                 <div id="copy-show">Copied</div>
-            </div>
-        </div>
+            </div>--
+
+        </div>-->
     </div>
 
     <script>
@@ -213,9 +287,9 @@
             const element = document.getElementById('copyButton');
 
             if (window.matchMedia("(max-width: 600px)").matches) {
-                element.innerHTML = '<i class="fa-solid fa-copy"></i>';
+                element.innerHTML = '<i class="bi bi-copy opacity-25"></i>';
             } else {
-                element.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Output';
+                element.innerHTML = '<i class="bi bi-copy opacity-75"></i>';
             }
         }
 
