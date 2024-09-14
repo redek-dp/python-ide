@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <title>Python</span> IDE 🐍</title>
+    <title>Python IDE 🐍</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://codestudio.pages.dev/editor/d-framework/js/pace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <style>
@@ -32,181 +34,121 @@
 
     #editor {
         width: 100%;
-        height: 360px;
+        height: 400px;
         margin: 0;
         padding: 60px 0px 0px;
         overflow: hidden;
     }
 
-    /*  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
 
-    * {
-        padding: 0;
-        margin: 0;
+    /* menu */
+    .sobrenam {
+        font-size: 14px;
+        text-transform: uppercase;
+        padding-top: 15px;
     }
 
-    body {
+    .bt-listas {
+        background-color: #333;
+        border: none;
+        color: #bdb7b7;
+        padding: 4px 10px;
+        text-align: left;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        font-size: 15px;
+        margin: 6px 0px;
+        cursor: pointer;
+        width: 100%;
+        text-transform: uppercase;
+        /*border-radius: 10px;*/
+    }
+
+    /*menumodal*/
+    .btn-outline-success {
+        background-color: #444;
+        border: none;
+        color: #bdb7b7;
+        padding: 8px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        margin: 5px 7px;
+        cursor: pointer;
+        text-transform: uppercase;
+        /*border-radius: 10px;*/
+        height: 35px;
+    }
+
+    .bt-hover:hover {
+        background-color: #555555;
+        color: #fff8;
+    }
+
+    .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: #1e1e1efb;
-        font-family: 'Poppins', sans-serif;
-        display: grid;
-        grid-template-rows: 10% 1fr 40%;
-        color: white;
+        display: none;
+        font-family: "Arial", serif;
     }
 
-    h1 {
-        color: #ffffff;
+    .conteudo-modal {
+        margin: 0 auto;
+        max-width: 258px;
+        background-color: #222;
+        color: #fff9;
+        border-radius: 0px;
+        left: 0;
+        position: absolute;
+        height: -webkit-fill-available;
     }
 
-    .credit-section {
-        padding: 10px;
-        background-color: #ffffff;
-        border-radius: 5px;
-        width: max-content;
-
-    }
-
-    .credit-section:hover {
-        box-shadow: 0px 0px 10px 0px #ffffff;
-    }
-
-
-    a {
-        text-decoration: none;
-        color: #1e1e1e;
-    }
-
-    .header-section {
+    .cabecalho-modal {
+        padding: 0px 0px 0px 15px;
         display: flex;
-        justify-content: space-around;
         align-items: center;
-        padding: 10px;
-    }
-
-    .editor-section {
-        margin: 15px;
-        border: 2px solid #424242;
-    }
-
-    .output-section {
-        margin: 15px;
-    }
-
-    .button-area {
-        width: 75%;
-        display: flex;
         justify-content: space-between;
-        margin-inline: 25px;
-        align-items: center;
-        margin-bottom: 25px;
+        background-color: #333;
+        color: #d1cecb;
+        box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
+        /*border-radius: 10px;
+  margin: 10px;*/
     }
 
-    h2 {
-        border: 2px solid #6d6d6d;
-        padding-inline: 15px;
-    }
-
-    #run {
-        background-color: #00D65C;
-        border: none;
-        border-radius: 100%;
-        padding: 10px 15px;
-        cursor: pointer;
-        color: #1e1e1e;
+    .cabecalho-modal .cabecalho-titulo-modal {
         font-weight: bold;
-        transition: transform 0.2s ease-in-out;
+        margin: 11px 1px 8px 12px;
+        text-transform: uppercase;
     }
 
-    #run:hover {
-        box-shadow: 0px 0px 10px 0px #00D65C;
-        transform: scale(1.5);
-        
-    }
-*/
-
-    /*
-    #output {
-        margin-inline: 25px;
-    }
-
-    #output {
-        margin-inline: 25px;
-        user-select: text;
-    }
-
-    .result-section {
-        border: 2px solid #424242;
-        height: 200px;
-        padding: 10px;
-        border-radius: 5px;
-        width: 70%;
-        overflow: scroll;
-        scroll-behavior: smooth;
-    }
-
-    .result-section::-webkit-scrollbar {
-        width: 0.5em;
-    }
-
-    .result-section::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
-
-    .result-section::-webkit-scrollbar-thumb {
-        background-color: #888;
-        border-radius: 4px;
-    }
-
-    .result-section:hover::-webkit-scrollbar {
-        width: 0.5em;
-    }
-
-    .result-wrapper {
-        display: flex;
-    }
-
-    #copyButton {
-        margin-inline-start: 50px;
-        width: 250px;
-        padding: 10px 15px;
+    .cabecalho-modal .cabecalho-modal-fechar {
+        padding: 18px 10px;
         cursor: pointer;
+        /*border-radius: 0px 10px 10px 0px;*/
     }
 
-    #copy-show {
-        margin-inline-start: 50px;
-        text-align: center;
-        width: 178px;
-        padding: 35px;
-        border: 2px solid #424242;
-        margin-top: 25px;
-        visibility: hidden;
+    .corpo-modal {
+        padding: 1px 8px 8px 8px;
+        overflow: auto !important;
+        max-height: 73%;
     }
 
-    .no-scrollbar {
-        overflow: hidden;
+    .rodape-modal {
+        border-top: solid #eee 1px;
+        padding: 3px;
+        background-color: #333;
+        text-align: right;
+        bottom: 0px;
+        position: fixed;
+        width: 257px;
     }
-
-
-    @media screen and (max-width: 600px) {
-        .header-section {
-            font-size: 8px;
-        }
-
-        #copyButton {
-            width: max-content;
-        }
-
-        .result-section {
-            width: 70%;
-        }
-
-        #copy-show {
-            width: max-content;
-            padding: 5px;
-        }
-
-    }*/
 </style>
 
 <body>
@@ -215,12 +157,77 @@
     </div>-->
 
 
+    <!--menu-->
+    <div id="vis-modal" class="modal">
+        <div class="conteudo-modal">
+            <div class="cabecalho-modal">
+                <h3 class="cabecalho-titulo-modal">MENU </h3>
+
+                <span class="cabecalho-modal-fechar bt-hover" onclick="fecharModal('vis-modal')">✖️</span>
+            </div>
+
+            <div class="corpo-modal">
+                <p class="sobrenam">❝ Aplicativos para várias plataformas by Developer Davidsonbpe.❞ <br>
+                    <hr>
+                </p>
+
+                <button onclick="javascript:window.open('https://github.com/davidsonbpe');" class="bt-listas bt-hover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-justify-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg> <span style="padding: 7px 8px;">GitHub</span>
+                </button>
+
+                <button onclick="javascript:window.open('https://codepen.io/davidsonbpe');" class="bt-listas bt-hover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-justify-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg> <span style="padding: 7px 8px;">CodePen</span>
+                </button>
+
+                <button onclick="javascript:window.open('https://pag.ae/7Y3uUnhg8');" class="bt-listas bt-hover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-justify-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg> <span style="padding: 7px 8px;">DOAR COM</span>
+                </button>
+
+                <button onclick="javascript:window.open('https://davidsonbpe.blogspot.com/');"
+                    class="bt-listas bt-hover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-justify-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg> <span style="padding: 7px 8px;">Developer</span>
+                </button>
+
+                <button onclick="sharesbutton();" class="bt-listas bt-hover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-justify-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg> <span style="padding: 7px 8px;">Compartilhar</span>
+                </button>
+
+            </div>
+
+            <div class="rodape-modal">
+                <button class="btn-outline-success bt-hover" onclick="fecharModal('vis-modal')">Sair</button>
+            </div>
+
+        </div>
+    </div>
+    <!--menu-->
+
 
 
     <div id="home" class="d-flex position-fixed z-3 w-100 boxdbshadow" data-bs-theme="dark">
 
         <img type="button" title="MENU" onclick="abrirModal('vis-modal')" type="button"
-            src="https://pwag.pages.dev/d-framework/icon/192/favicon.png"
+            src="https://dav7ide.pages.dev/d-framework/icon/144/favicon.png"
             class="img-thumbnail rounded-0 border-0 p-0 bg-hover bg-dark" width="56" height="50" />
 
         <div class="form-floating flex-grow-1 rounded-0 border-0 text-uppercase">
@@ -260,24 +267,12 @@
     </div>
 
 
-    <!--<div class="output-section bg-black">
-        <!--<div class="button-area">
-            <h2>Output:</h2>
-            <button id="run" title="Run Code">▶</button>
-        </div>
 
-        <div class="result-wrapper">-->
-
-    <div class="result-section bg-black position-fixed bottom-0 z-3 w-100" style="height: 250px;">
-        <pre class="text-warning" id="output"></pre>
+    <div class="result-section bg-black position-fixed bottom-0 z-3 w-100 overflow-auto" style="height: 260px;">
+        <pre class="text-warning p-2" id="output"></pre>
     </div>
 
-    <!--<div class="result-btn-section">
-                <button id="copyButton" title="Copy Output"><i class="fa-solid fa-copy"></i> Copy Output</button>
-                <div id="copy-show">Copied</div>
-            </div>--
 
-        </div>-->
     </div>
 
     <script>
@@ -287,7 +282,7 @@
             const element = document.getElementById('copyButton');
 
             if (window.matchMedia("(max-width: 600px)").matches) {
-                element.innerHTML = '<i class="bi bi-copy opacity-25"></i>';
+                element.innerHTML = '<i class="bi bi-copy opacity-75"></i>';
             } else {
                 element.innerHTML = '<i class="bi bi-copy opacity-75"></i>';
             }
@@ -309,8 +304,8 @@
             const textArea = document.createElement("textarea");
             textArea.value = textToCopy;
             document.body.appendChild(textArea);
-            textArea.select();
             document.execCommand("copy");
+            textArea.select();
             document.body.removeChild(textArea);
 
             // Remove the class to restore the scrollbar
@@ -372,6 +367,56 @@ print(thislist)`,
             });
 
         });
+
+
+        fetch("https://dav7.pages.dev/api/serve.json")
+            .then((response) => response.json())
+            .then((data) => {
+                const sites = data.sites;
+                const mySelects = document.getElementById("mySelects");
+
+                sites.forEach((sites) => {
+                    const preElement = document.createElement("option");
+                    preElement.value = `${sites.properties.links}`;
+                    preElement.textContent = `${sites.properties.title}`;
+                    mySelects.appendChild(preElement);
+                });
+            })
+            .catch((error) => {
+                console.log("ERROR", error);
+            });
+
+        const select = document.getElementById("mySelects");
+        select.addEventListener("change", function () {
+            const url = this.value;
+            if (url) {
+                window.location = url;
+                //window.open(''+url+'');
+            }
+        });
+
+        /* menu-modal */
+        function abrirModal(carregarModal) {
+            let modal = document.getElementById(carregarModal);
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        function fecharModal(fecharModal) {
+            let modal = document.getElementById(fecharModal);
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        /*shared*/
+        function sharesbutton() {
+            navigator.share({
+                title: document.title,
+                text: "Compartilhar" + document.title,
+                url: window.location.href
+            });
+        }
+
+
     </script>
 </body>
 
