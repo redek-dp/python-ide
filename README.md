@@ -1,3 +1,6 @@
+python app.py
+
+
 Procfile
 
 web: gunicorn webdev:app
