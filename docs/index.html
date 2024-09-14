@@ -3,8 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Python IDE 🐍</title>
+    <title>PYTHON IDE | ONLINE 🐍</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CRIE E EXECUTE SEU CÓDIGO PYTHON INSTANTANEAMENTE." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="PYTHON IDE ONLINE" />
+    <meta name="apple-mobile-web-app-title" content="PYTHON IDE ONLINE" />
+    <meta name="theme-color" content="#222" />
+    <meta name="msapplication-navbutton-color" content="#222" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta content="https://dav7ide.pages.dev/d-framework/icon/512/favicon.png" property="og:image" />
+    <meta content="https://dav7ide.pages.dev/d-framework/icon/512/favicon.png" name="twitter:image" />
+    <link rel="icon" type="image/png" sizes="512x512"
+        href="https://dav7ide.pages.dev/d-framework/icon/512/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="512x512"
+        href="https://dav7ide.pages.dev/d-framework/icon/512/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://dav7ide.pages.dev/d-framework/icon/192/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="192x192"
+        href="https://dav7ide.pages.dev/d-framework/icon/192/favicon.png" />
+    <link rel="icon" type="image/png" sizes="144x144"
+        href="https://dav7ide.pages.dev/d-framework/icon/144/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="144x144"
+        href="https://dav7ide.pages.dev/d-framework/icon/144/favicon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="https://dav7ide.pages.dev/d-framework/icon/96/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="96x96"
+        href="https://dav7ide.pages.dev/d-framework/icon/96/favicon.png" />
+    <link rel="icon" type="image/png" sizes="72x72" href="https://dav7ide.pages.dev/d-framework/icon/72/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="72x72"
+        href="https://dav7ide.pages.dev/d-framework/icon/72/favicon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="https://dav7ide.pages.dev/d-framework/icon/48/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="48x48"
+        href="https://dav7ide.pages.dev/d-framework/icon/48/favicon.png" />
+    <link rel="icon" type="image/png" sizes="36x36" href="https://dav7ide.pages.dev/d-framework/icon/36/favicon.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="36x36"
+        href="https://dav7ide.pages.dev/d-framework/icon/36/favicon.png" />
+
     <script src="https://codestudio.pages.dev/editor/d-framework/js/pace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -248,13 +288,13 @@
             <i class="bi bi-eye opacity-75"></i>
         </button>
 
-        <button id="copyButton" title="COPIAR CODE" class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end"
+        <button id="copyDivButton" title="COPIAR CODE" class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end"
             type="button">
             <i class="bi bi-copy opacity-75"></i>
         </button>
 
-        <button id="saex-button" onclick="bgdabrirModal('bgdvis-modal')" title="DOWNLOAD"
-            class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end" type="button">
+        <button id="download-btn" title="DOWNLOAD" class="btn btn-dark rounded-0 text-warning fs-4 px-3 border-end"
+            type="button">
             <i class="bi bi-download opacity-75"></i>
         </button>
 
@@ -269,7 +309,7 @@
 
 
     <div class="result-section bg-black position-fixed bottom-0 z-3 w-100 overflow-auto" style="height: 260px;">
-        <pre class="text-warning p-2" id="output"></pre>
+        <pre class="text-warning p-2" id="output">RUN RESULTADOS</pre>
     </div>
 
 
@@ -277,7 +317,18 @@
 
     <script>
 
-        // Function to change innerHTML based on the media query
+        const copyDivyButton = document.getElementById("copyDivButton");
+        copyDivyButton.addEventListener("click", function () {
+            var range = document.createRange();
+            range.selectNode(document.getElementById("output"));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            document.select();
+            window.getSelection().removeAllRanges();
+        });
+
+        /*// Function to change innerHTML based on the media query
         function changeContent() {
             const element = document.getElementById('copyButton');
 
@@ -321,7 +372,7 @@
 
         // Add a click event listener to the copy button
         document.getElementById("copyButton").addEventListener("click", copyToClipboard);
-
+*/
 
     </script>
 
@@ -358,6 +409,7 @@ print(thislist)`,
                     .then(data => {
                         // Handle the JSON response here (data.output)
                         document.getElementById("output").textContent = data.output;
+
                     })
                     .catch(error => {
                         // Handle errors, e.g., display an error message
@@ -366,6 +418,21 @@ print(thislist)`,
                     });
             });
 
+        });
+
+
+        /* download 2 */
+        var devapi = output;
+        var downloadBtn = document.getElementById("download-btn");
+        downloadBtn.addEventListener("click", function () {
+            var valuee = devapi;
+            var blob = new Blob([valuee], { type: "text/plain" });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "index.txt";
+            a.click();
+            URL.revokeObjectURL(url);
         });
 
 
