@@ -304,8 +304,8 @@
             const textArea = document.createElement("textarea");
             textArea.value = textToCopy;
             document.body.appendChild(textArea);
-            document.execCommand("copy");
             textArea.select();
+            document.execCommand("copy");
             document.body.removeChild(textArea);
 
             // Remove the class to restore the scrollbar
