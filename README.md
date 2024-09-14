@@ -6,4 +6,4 @@ Procfile
 web: gunicorn webdev:app
 
 
-pip freeze > "requirements.txt"
+pip3.12 freeze > "requirements.txt"
