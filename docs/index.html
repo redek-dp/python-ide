@@ -379,8 +379,12 @@
 
         require(['vs/editor/editor.main'], function () {
             const editor = monaco.editor.create(document.getElementById('editor'), {
-                value: `thislist = ["apple", "banana", "cherry"]
-print(thislist)`,
+                value: `thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)`,
                 language: 'python',
                 theme: 'vs-dark',
             });
@@ -388,7 +392,7 @@ print(thislist)`,
             document.getElementById("run").addEventListener("click", function () {
                 const code = editor.getValue();
 
-                /* download 2 */
+                /* download */
                 var devapi = code;
                 var downloadBtn = document.getElementById("download-btn");
                 downloadBtn.addEventListener("click", function () {
@@ -397,7 +401,7 @@ print(thislist)`,
                     var url = URL.createObjectURL(blob);
                     var a = document.createElement("a");
                     a.href = url;
-                    a.download = "index.txt";
+                    a.download = "main.py";
                     a.click();
                     URL.revokeObjectURL(url);
                 });
