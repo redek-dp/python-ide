@@ -8,6 +8,10 @@ app = Flask(__name__, template_folder="docs")
 def index():
     return render_template("index.html")
 
+@app.route("/stilo.css")
+def index():
+    return render_template("stilo.css")
+
 
 @app.route("/run", methods=["POST"])
 def run_code():
