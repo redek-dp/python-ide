@@ -9,7 +9,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/stilo.css")
-def index():
+def stilo():
     return render_template("stilo.css")
 
 
