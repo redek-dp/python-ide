@@ -42,9 +42,7 @@
     <link rel="apple-touch-icon" type="image/png" sizes="48x48"
         href="https://dav7ide.pages.dev/d-framework/icon/48/favicon.png" />
     <link rel="icon" type="image/png" sizes="36x36" href="https://dav7ide.pages.dev/d-framework/icon/36/favicon.png" />
-    <link rel="apple-touch-icon" type="image/png" sizes="36x36"
-        href="https://dav7ide.pages.dev/d-framework/icon/36/favicon.png" />
-
+    <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="https://dav7ide.pages.dev/d-framework/icon/36/favicon.png" />
     <script src="https://codestudio.pages.dev/editor/d-framework/js/pace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -390,6 +388,20 @@ print(thislist)`,
             document.getElementById("run").addEventListener("click", function () {
                 const code = editor.getValue();
 
+                /* download 2 */
+                var devapi = code;
+                var downloadBtn = document.getElementById("download-btn");
+                downloadBtn.addEventListener("click", function () {
+                    var valuee = devapi;
+                    var blob = new Blob([valuee], { type: "text/plain" });
+                    var url = URL.createObjectURL(blob);
+                    var a = document.createElement("a");
+                    a.href = url;
+                    a.download = "index.txt";
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+
                 fetch("/run", {
                     method: "POST",
                     headers: {
@@ -421,19 +433,7 @@ print(thislist)`,
         });
 
 
-        /* download 2 */
-        var devapi = output;
-        var downloadBtn = document.getElementById("download-btn");
-        downloadBtn.addEventListener("click", function () {
-            var valuee = devapi;
-            var blob = new Blob([valuee], { type: "text/plain" });
-            var url = URL.createObjectURL(blob);
-            var a = document.createElement("a");
-            a.href = url;
-            a.download = "index.txt";
-            a.click();
-            URL.revokeObjectURL(url);
-        });
+
 
 
         fetch("https://dav7.pages.dev/api/serve.json")
