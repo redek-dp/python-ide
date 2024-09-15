@@ -1,10 +1,61 @@
 {
     "name": "PYTHON IDE ONLINE",
     "short_name": "PYTHON IDE ONLINE",
+    "lang": "pt-BR",
+    "description": "CRIE E EXECUTE SEU CÓDIGO PYTHON INSTANTANEAMENTE. BY DEVELOPER DAVIDSONBPE",
+    "id": "pyide",
+    "iarc_rating_id": "HP57-HLTY-CV58-8LN6-10KL-GH32-KI96-DE14-2024",
+    "dir": "auto",
+    "display_override": [
+        "window-controls-overlay",
+        "standalone"
+    ],
+    "categories": [
+        "books"
+    ],
     "icons": [
         {
             "src": "../static/icon/144/favicon.png",
-            "sizes": "144x144"
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "../static/icon/36/favicon.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "../static/icon/48/favicon.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "../static/icon/72/favicon.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "../static/icon/96/favicon.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "../static/icon/192/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "../static/icon/512/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "../static/icon/512/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "platform": "wide"
         }
     ],
     "display": "standalone",
