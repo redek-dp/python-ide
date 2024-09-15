@@ -1,0 +1,15 @@
+{
+    "name": "PYTHON IDE ONLINE",
+    "short_name": "PYTHON IDE ONLINE",
+    "icons": [
+        {
+            "src": "https://dav7ide.pages.dev/d-framework/icon/144/favicon.png",
+            "sizes": "144x144"
+        }
+    ],
+    "display": "standalone",
+    "scope": "https://pyide-kappa.vercel.app/static/",
+    "start_url": "https://pyide-kappa.vercel.app/?app",
+    "theme_color": "#232d53",
+    "background_color": "#2c3e50"
+}
